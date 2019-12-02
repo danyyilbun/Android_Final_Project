@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EnteringDataActivity"
+    android:layout_marginTop="10dp">
+
+    <EditText
+        android:id="@+id/entering_activity_firstName"
+        android:hint="Please enter first name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:id="@+id/entering_activity_lastName"
+        android:hint="Please enter last name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_firstName"
+        />
+    <EditText
+        android:id="@+id/entering_activity_eloRating"
+        android:hint="Please enter elo rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_lastName"
+        />
+    <TextView
+        android:id="@+id/entering_activity_date_birth"
+        android:text="Please enter date of birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_eloRating"
+        />
+    <TextView
+        android:id="@+id/entering_activity_date_death"
+        android:text="Please enter date of death"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_date_birth"
+        />
+    <EditText
+        android:id="@+id/entering_activity_yearsChampion"
+        android:hint="Please enter years Champion "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_date_death"
+        />
+    <EditText
+        android:id="@+id/entering_activity_country"
+        android:hint="Please enter country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/entering_activity_yearsChampion"
+        />
+    <ImageView
+        android:id="@+id/entering_activity_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entering_activity_country"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:contentDescription="This is placeholder for picture"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <Button
+        android:id="@+id/entering_activity_add_picture_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entering_activity_date_death"
+        android:layout_alignRight="@id/entering_activity_imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="-257dp"
+        android:text="Add Picture" />
+
+    <Button
+
+        android:id="@+id/entering_activity_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entering_activity_imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="Submit" />
+
+
+</RelativeLayout>

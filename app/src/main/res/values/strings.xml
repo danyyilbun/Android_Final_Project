@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Final_Android_Project</string>
+    <string name="ui_menu_help">help</string>
+    <string name="ui_menu_about">about</string>
+    <string name="ui_menu_settings">settings</string>
+    <string name="enter_new_player">Enter new player</string>
+    <string name="choose_conditions_to_display">Choose conditions to display</string>
+    <string name="show_all">Show all</string>
+
+</resources>

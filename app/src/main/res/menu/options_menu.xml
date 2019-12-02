@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item
+android:id="@+id/menuitem_settings"
+app:showAsAction="never"
+android:title="@string/ui_menu_settings">
+</item>
+    <item
+        android:id="@+id/menuitem_nav"
+        app:showAsAction="never"
+        android:title="Navigate">
+        <menu>
+            <item
+        android:id="@+id/menuitem_new_player"
+        app:showAsAction="ifRoom"
+        android:title="@string/enter_new_player"
+                android:onClick="EnterPlayerClicked">
+          </item>
+            <item
+                android:id="@+id/menuitem_choose"
+                app:showAsAction="never"
+                android:title="@string/choose_conditions_to_display"
+                android:onClick="ChooseConditionClicked">
+            </item>
+            <item
+                android:id="@+id/menuitem_show"
+                app:showAsAction="never"
+                android:title="@string/show_all"
+                android:onClick="ShowAllClicked">
+            </item>
+        </menu>
+    </item>
+    </menu>

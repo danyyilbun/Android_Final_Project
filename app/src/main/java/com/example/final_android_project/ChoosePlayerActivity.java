@@ -8,13 +8,46 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class ChoosePlayerActivity extends AppCompatActivity {
-
+    public EditText year;
+    public EditText rating;
+    public EditText show_name;
+    public Button showAll;
+    public Button accept;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_player);
+
+    year = findViewById(R.id.activity_choose_player_demonstrate_for_year);
+    rating = findViewById(R.id.activity_choose_player_demonstrate_demonstrate_for_rating);
+    show_name = findViewById(R.id.activity_choose_player_demonstrate_show_by_name);
+    showAll = findViewById(R.id.activity_choose_player_demonstrate_show_all);
+    accept = findViewById(R.id.activity_choose_player_submit);
+
+
+    showAll.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    });
+
+
+    accept.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    });
+
+
+
+
 
 
 

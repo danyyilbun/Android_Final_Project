@@ -1,9 +1,12 @@
 package com.example.final_android_project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class ChoosePlayerActivity extends AppCompatActivity {
@@ -28,6 +31,25 @@ public class ChoosePlayerActivity extends AppCompatActivity {
 
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu,menu);
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId())
+        {
+
+            case R.id.menuitem_settings:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
 
     /**
      *

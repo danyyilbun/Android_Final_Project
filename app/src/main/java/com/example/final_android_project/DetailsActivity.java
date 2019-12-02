@@ -123,12 +123,7 @@ int id;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.menuitem_about:
 
-                return true;
-            case R.id.menuitem_help:
-
-                return  true;
             case R.id.menuitem_settings:
 
                 return true;

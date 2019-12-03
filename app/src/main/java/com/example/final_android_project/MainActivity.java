@@ -29,11 +29,13 @@ import android.widget.Toast;
 import com.example.final_android_project.adapter.RecyclerViewAdapter;
 import com.example.final_android_project.model.Chessplayer;
 import com.example.final_android_project.utils.DatabaseHandler;
+import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,10 +50,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        DatabaseHandler db = new DatabaseHandler(MainActivity.this);
-        contactArrayList = db.getAllChessplayer();
-        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this,contactArrayList);
+        if(getIntent().getExtras() != null){
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.getString("list") != null)
+        {
+            Gson gson = new Gson();
+            contactArrayList = Arrays.asList(gson.fromJson(bundle.getString("list"), Chessplayer[].class));
+        }}else {
+            DatabaseHandler db = new DatabaseHandler(MainActivity.this);
+            contactArrayList = db.getAllChessplayer();
+        }recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this,contactArrayList);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 

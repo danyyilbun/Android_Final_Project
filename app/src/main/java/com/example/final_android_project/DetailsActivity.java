@@ -3,6 +3,7 @@ package com.example.final_android_project;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.final_android_project.model.Chessplayer;
@@ -18,20 +20,22 @@ import com.example.final_android_project.utils.DatabaseHandler;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ByteArrayOutputStream;
+
 public class DetailsActivity extends AppCompatActivity {
-public TextView firstName;
-public TextView lastName;
-public TextView eloRating;
+public EditText firstName;
+public EditText lastName;
+public EditText eloRating;
 public TextView dateB;
 public TextView dateD;
 public ImageView image;
-public TextView yearsChampion;
-public TextView country;
+public EditText yearsChampion;
+public EditText country;
 public Button editButton;
 public Button leaveButton;
+    DatabaseHandler db;
 
-
-int id;
+int id  = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +53,15 @@ int id;
         leaveButton = findViewById(R.id.leaveButton);
 
 
+
+
         Bundle bundle = getIntent().getExtras();
-        DatabaseHandler db = new DatabaseHandler(DetailsActivity.this);
+        db = new DatabaseHandler(DetailsActivity.this);
 
         if(bundle != null) {
             id = Integer.parseInt(bundle.getString("id"));
         }
-        Chessplayer chessplayer = db.getChessplayer(id);
+        final Chessplayer  chessplayer = db.getChessplayer(id);
         firstName.setText(chessplayer.getFirstName());
         lastName.setText(chessplayer.getLastName());
         eloRating.setText(chessplayer.getEloRating());
@@ -71,28 +77,49 @@ int id;
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String fName = firstName.getText().toString();
+                String lName = lastName.getText().toString();
+                int elo = Integer.parseInt(eloRating.getText().toString());
+                String dBirth = dateB.getText().toString();
+                String dDeath = dateD.getText().toString();
+                String yearChamp = yearsChampion.getText().toString();
+                String count = country.getText().toString();
+                byte[] img = imageViewToByte(image);
+                updatePlayer(new Chessplayer(chessplayer.getId(),fName,lName,elo,dBirth,dDeath,yearChamp,count,img));
             }
         });
 
         leaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = getIntent();
-                intent.putExtra("message back","From the second Activity");
-                //Send something back if it's OK to do so.
-                setResult(RESULT_OK, intent);
-                finish();
+                leave();
             }
         });
 
     }
+    public void leave()
+    {Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("letChoose","Show All");
+        startActivity(intent);
+    }
 
 
+    public int updatePlayer(Chessplayer chessplayer)
+    {
+        return db.updateChessplayer(chessplayer);
+    }
 
+    private byte[] imageViewToByte(ImageView image)
+    {
 
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream  = new ByteArrayOutputStream();
 
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+        byte [] byteArray = stream.toByteArray();
+        return byteArray;
 
+    }
 
 
 

@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
-    public Context context;;
+    public Context context;
     public List<Chessplayer> chessplayerList;
     public RecyclerViewAdapter(Context context, List<Chessplayer> chessplayerList) {
         this.context = context;

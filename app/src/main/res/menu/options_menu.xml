@@ -17,15 +17,10 @@ android:title="@string/ui_menu_settings">
         android:title="@string/enter_new_player"
                 android:onClick="EnterPlayerClicked">
           </item>
-            <item
-                android:id="@+id/menuitem_choose"
-                app:showAsAction="never"
-                android:title="@string/choose_conditions_to_display"
-                android:onClick="ChooseConditionClicked">
-            </item>
+
             <item
                 android:id="@+id/menuitem_show"
-                app:showAsAction="never"
+                app:showAsAction="ifRoom"
                 android:title="@string/show_all"
                 android:onClick="ShowAllClicked">
             </item>

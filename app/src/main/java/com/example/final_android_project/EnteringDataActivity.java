@@ -255,7 +255,7 @@ public void CreateListeners()
      *
      * @param menuItem
      */
-    public void  ChooseConditionClicked(MenuItem menuItem)
+	public void  ChooseConditionClicked(MenuItem menuItem)
     {
         Intent intent = new Intent(this, ChoosePlayerActivity.class);
         intent.putExtra("letChoose","Show All");

@@ -55,11 +55,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(util.KEY_NAME[0], chessplayer.getFirstName() );
-
+		values.put(util.KEY_NAME[1], chessplayer.getLastName() );
+		values.put(util.KEY_NAME[2], chessplayer.getEloRating() );
+		values.put(util.KEY_NAME[3], chessplayer.getDateOfBirth() );
+		values.put(util.KEY_NAME[4], chessplayer.getDateOfDeath() );
+		values.put(util.KEY_NAME[5], chessplayer.getYearsChampion() );
+		values.put(util.KEY_NAME[6], chessplayer.getCountry() );
+		values.put(util.KEY_NAME[7], chessplayer.getImage() );
 
         db.insert(util.TABLE_NAME, null, values);
         db.close();
     }
+
     public Chessplayer getChessplayer(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -123,7 +130,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             db.close();
         return chessplayerList;
     }
+    public List<Chessplayer> getChessplayerByCondition(String condition)
+    {
+        List <Chessplayer> chessplayerList = new ArrayList<>();
+        SQLiteDatabase db= this.getReadableDatabase();
+        String selectAll = "SELECT * FROM " + util.TABLE_NAME + " where " + condition;
 
+        Cursor cursor = db.rawQuery(selectAll,null);
+
+        if(cursor.moveToFirst())
+        {
+            do{
+                Chessplayer chessplayer = new Chessplayer(
+                        Integer.parseInt(cursor.getString(0)),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        Integer.parseInt(cursor.getString(3)),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getBlob(8)
+                );
+                chessplayerList.add(chessplayer);
+            }
+            while(cursor.moveToNext());
+
+        }
+        db.close();
+        return chessplayerList;
+    }
 
     public void deleteChessplayer(Chessplayer chessplayer)
     {

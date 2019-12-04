@@ -195,7 +195,7 @@ public void CreateListeners()
             // imageView  firstName lastName eloRating dateBirth dateDeath yearsChampion country
 
             String fName = firstName.getText().toString();
-            String lName = lastName.getText().toString();
+               String lName = lastName.getText().toString();
             int elo = Integer.parseInt(eloRating.getText().toString());
             String dBirth = dateBirth.getText().toString();
             String dDeath = dateDeath.getText().toString();

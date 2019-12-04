@@ -34,7 +34,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     +
                     util.KEY_NAME[5] + " TEXT , " // yearsChampion
                     +
-                     util.KEY_NAME[6] + " TEXT"// country
+                     util.KEY_NAME[6] + " TEXT , "// country
                          +
                     util.KEY_NAME[7] + " BLOB " //image
                     +");";
@@ -54,11 +54,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put(util.KEY_NAME[0], chessplayer.getFirstName() );
 		values.put(util.KEY_NAME[1], chessplayer.getLastName() );
 		values.put(util.KEY_NAME[2], chessplayer.getEloRating() );
-		values.put(util.KEY_NAME[3], chessplayer.getDateOfBirth() );
-		values.put(util.KEY_NAME[4], chessplayer.getDateOfDeath() );
+		values.put(util.KEY_NAME[3], "");//chessplayer.getDateOfBirth() );
+		values.put(util.KEY_NAME[4], "");//chessplayer.getDateOfDeath() );
 		values.put(util.KEY_NAME[5], chessplayer.getYearsChampion() );
 		values.put(util.KEY_NAME[6], chessplayer.getCountry() );
 		values.put(util.KEY_NAME[7], chessplayer.getImage() );

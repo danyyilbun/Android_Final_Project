@@ -50,23 +50,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerView  = findViewById(R.id.recyclerView);
         if(getIntent().getExtras() != null){
         Bundle bundle = getIntent().getExtras();
         if(bundle.getString("list") != null)
         {
             Gson gson = new Gson();
             contactArrayList = Arrays.asList(gson.fromJson(bundle.getString("list"), Chessplayer[].class));
-        }}else {
+        }}
+        else {
             DatabaseHandler db = new DatabaseHandler(MainActivity.this);
             contactArrayList = db.getAllChessplayer();
-        }recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this,contactArrayList);
+        }
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this,contactArrayList);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-
-
-        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this,contactArrayList);
-        recyclerView.setAdapter(recyclerViewAdapter);
 
     }
 

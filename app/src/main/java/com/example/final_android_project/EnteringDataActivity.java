@@ -137,7 +137,7 @@ public void CreateListeners()
                     android.R.style.Widget_Holo_ActionBar,
                     mDateSetListenerBirth,
                     year,month,day);
-           dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             dialog.show();
         }
     });
@@ -162,7 +162,7 @@ public void CreateListeners()
                     mDateSetListenerDeath,
                     year,month,day);
            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialog.show();
+           dialog.show();
         }
     });
 
@@ -203,6 +203,8 @@ public void CreateListeners()
             String count = country.getText().toString();
             byte[] img = imageViewToByte(imageView);
             addPlayer(new Chessplayer(fName,lName,elo,dBirth,dDeath,yearChamp,count,img));
+            Intent  intent = new  Intent(EnteringDataActivity.this, MainActivity.class);
+            startActivity(intent);
         }
     });
 

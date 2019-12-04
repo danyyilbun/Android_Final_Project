@@ -99,9 +99,8 @@
         android:id="@+id/entering_activity_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/entering_activity_imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_below="@id/entering_activity_add_picture_button"
+        android:layout_marginTop="68dp"
         android:text="Submit" />
 
 

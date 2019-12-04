@@ -43,8 +43,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.firstName.setText(chessplayer.getFirstName());
         holder.lastName.setText(chessplayer.getLastName());
         holder.eloRating.setText(chessplayer.getEloRating());
-        Bitmap bitmap = BitmapFactory.decodeByteArray(chessplayer.getImage(), 0, chessplayer.getImage().length);
-        holder.image.setImageBitmap(bitmap);
+        byte []  arr  =  chessplayer.getImage();
+        if(arr!=null){
+        Bitmap bitmap = BitmapFactory.decodeByteArray(arr, 0, chessplayer.getImage().length);
+        holder.image.setImageBitmap(bitmap);}
     }
 
     @Override
